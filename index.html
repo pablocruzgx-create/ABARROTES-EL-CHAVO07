@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Abarrotes El Chavo07, tu tienda en línea.">
+  <title>Abarrotes El Chavo07</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+  <a href="#" class="brand" onclick="showPage('home')">
+    <span class="brand-icon">🛒</span>
+    <span>ABARROTES <b>EL CHAVO07</b>
+      <small>Tu tienda de confianza</small>
+    </span>
+  </a>
+
+  <nav class="navigation">
+    <a href="#" onclick="showPage('home')">Inicio</a>
+    <a href="#" onclick="openCatalog()">Productos</a>
+    <a href="#" onclick="showPage('flow')">Diagrama de flujo</a>
+    <a href="#" onclick="showPage('privacy')">Privacidad</a>
+  </nav>
+
+  <button class="cart-button" onclick="showPage('cart')">
+    🛒 Carrito <span id="cart-count">0</span>
+  </button>
+</header>
+
+<main>
+
+<!-- INICIO -->
+<section id="home" class="page active">
+
+  <div class="hero">
+    <div class="hero-content">
+      <span class="eyebrow">BIENVENIDO A TU TIENDA</span>
+
+      <h1>Todo lo que necesitas, <span>cerca de ti.</span></h1>
+
+      <p>
+        Encuentra tus productos favoritos, realiza tus compras
+        desde casa y recibe tu pedido de manera sencilla.
+      </p>
+
+      <button class="primary-button" onclick="startShopping()">
+        Comprar ahora →
+      </button>
+
+      <div class="hero-benefits">
+        <span>✓ Fácil de comprar</span>
+        <span>✓ Gran variedad</span>
+        <span>✓ Atención confiable</span>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=1000"
+           alt="Frutas y verduras de supermercado">
+      <div class="floating-card">🥬 Productos para tu hogar</div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-heading">
+      <span class="eyebrow">NUESTRAS SECCIONES</span>
+      <h2>Explora nuestras categorías</h2>
+      <p>Selecciona lo que necesitas.</p>
+    </div>
+
+    <div class="category-grid">
+
+      <button class="category-card" onclick="selectCategory('abarrotes')">
+        <img src="https://images.unsplash.com/photo-1604719312566-8912e9c8a213?w=600" alt="Abarrotes">
+        <span>🛍️ Abarrotes</span>
+      </button>
+
+      <button class="category-card" onclick="selectCategory('verduras')">
+        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600" alt="Verduras">
+        <span>🥦 Verduras</span>
+      </button>
+
+      <button class="category-card" onclick="selectCategory('lacteos')">
+        <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=600" alt="Lácteos">
+        <span>🥛 Lácteos</span>
+      </button>
+
+      <button class="category-card" onclick="selectCategory('bebidas')">
+        <img src="https://images.unsplash.com/photo-1532634896-26909d0d4b8b?w=600" alt="Bebidas">
+        <span>🥤 Bebidas</span>
+      </button>
+
+    </div>
+  </section>
+
+  <section class="welcome-banner">
+    <div>
+      <span class="eyebrow">EL CHAVO07</span>
+      <h2>Tu despensa completa en un solo lugar.</h2>
+      <p>Compra fácil, rápido y desde donde estés.</p>
+      <button class="light-button" onclick="startShopping()">Ver productos →</button>
+    </div>
+    <div class="banner-icon">🛒🥑🍎</div>
+  </section>
+
+</section>
+
+<!-- CATÁLOGO -->
+<section id="catalog" class="page section">
+
+  <div class="section-heading">
+    <span class="eyebrow">NUESTRO CATÁLOGO</span>
+    <h1>Productos disponibles</h1>
+    <p>Selecciona tus productos y las cantidades que necesitas.</p>
+  </div>
+
+  <div class="filters">
+    <select id="category-filter">
+      <option value="todos">Todas las categorías</option>
+      <option value="abarrotes">Abarrotes</option>
+      <option value="verduras">Verduras</option>
+      <option value="lacteos">Lácteos</option>
+      <option value="bebidas">Bebidas</option>
+    </select>
+
+    <input type="search" id="search-input" placeholder="Buscar producto...">
+  </div>
+
+  <div id="product-grid" class="product-grid"></div>
+
+</section>
+
+<!-- PRIVACIDAD -->
+<section id="privacy" class="page section">
+
+  <div class="section-heading">
+    <span class="eyebrow">PROTECCIÓN DE INFORMACIÓN</span>
+    <h1>Políticas de privacidad</h1>
+    <p>Conoce cómo utilizamos tus datos.</p>
+  </div>
+
+  <div class="privacy-card">
+
+    <h3>1. Datos que se recopilan</h3>
+    <p>Nombre, teléfono, correo electrónico, dirección de entrega y los datos necesarios para registrar tu compra.</p>
+
+    <h3>2. Uso de la información</h3>
+    <p>Tus datos se utilizan únicamente para procesar tu compra y mejorar tu experiencia.</p>
+
+    <h3>3. Protección de datos</h3>
+    <p>La información se maneja con medidas de seguridad y no se comparte sin autorización.</p>
+
+    <h3>4. Cookies</h3>
+    <p>Podemos utilizar almacenamiento local para recordar tu carrito y facilitar la navegación.</p>
+
+    <h3>5. Derechos del usuario</h3>
+    <p>Puedes solicitar la actualización o corrección de tus datos personales conforme a la legislación aplicable.</p>
+
+    <div class="privacy-accept">
+      <label>
+        <input type="checkbox" id="accept-privacy">
+        He leído y acepto las políticas de privacidad.
+      </label>
+
+      <button class="primary-button" onclick="acceptPrivacy()">
+        Aceptar y continuar
+      </button>
+
+      <button class="text-button" onclick="showPage('home')">
+        Regresar al inicio
+      </button>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CARRITO -->
+<section id="cart" class="page section">
+
+  <div class="section-heading">
+    <span class="eyebrow">TU SELECCIÓN</span>
+    <h1>Carrito de compras</h1>
+    <p>Revisa los productos y el total de tu compra.</p>
+  </div>
+
+  <div class="cart-layout">
+    <div id="cart-items" class="cart-items"></div>
+
+    <div class="summary-card">
+      <h3>Resumen de compra</h3>
+
+      <div class="summary-line">
+        <span>Productos</span>
+        <b id="item-count">0</b>
+      </div>
+
+      <div class="summary-line">
+        <span>Subtotal</span>
+        <b id="subtotal">$0.00</b>
+      </div>
+
+      <div class="summary-line total">
+        <span>Total</span>
+        <b id="total">$0.00</b>
+      </div>
+
+      <button class="primary-button full" onclick="showPage('catalog')">
+        + Agregar otro producto
+      </button>
+
+      <button class="primary-button full" onclick="finishShopping()">
+        Finalizar compra →
+      </button>
+
+      <button class="text-button full" onclick="showPage('catalog')">
+        Seguir comprando
+      </button>
+    </div>
+  </div>
+
+</section>
+
+<!-- DATOS DE COMPRA -->
+<section id="checkout" class="page section">
+
+  <div class="section-heading">
+    <span class="eyebrow">DATOS DE ENTREGA</span>
+    <h1>Información de tu compra</h1>
+    <p>Ingresa tus datos para generar tu ticket.</p>
+  </div>
+
+  <div class="checkout-layout">
+
+    <form id="purchase-form" class="form-card">
+
+      <h3>Datos personales</h3>
+
+      <label>Nombre completo</label>
+      <input name="name" type="text" minlength="3" required placeholder="Tu nombre completo">
+
+      <label>Correo electrónico</label>
+      <input name="email" type="email" required placeholder="correo@ejemplo.com">
+
+      <label>Teléfono</label>
+      <input name="phone" type="tel" pattern="[0-9]{10}" required placeholder="10 dígitos">
+
+      <h3>Dirección de entrega</h3>
+
+      <label>Calle y número</label>
+      <input name="street" required placeholder="Calle y número">
+
+      <label>Colonia</label>
+      <input name="neighborhood" required placeholder="Colonia">
+
+      <label>Ciudad</label>
+      <input name="city" required placeholder="Ciudad">
+
+      <label>Estado</label>
+      <input name="state" required placeholder="Estado">
+
+      <label>Código postal</label>
+      <input name="postal" type="text" pattern="[0-9]{5}" required placeholder="5 dígitos">
+
+      <button class="primary-button full" type="submit">
+        Validar datos y generar ticket →
+      </button>
+
+    </form>
+
+    <div class="summary-card">
+      <h3>Resumen de tu pedido</h3>
+      <div id="checkout-items"></div>
+
+      <div class="summary-line total">
+        <span>Total de compra</span>
+        <b id="checkout-total">$0.00</b>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- TICKET -->
+<section id="ticket" class="page section">
+
+  <div class="section-heading">
+    <span class="eyebrow">COMPROBANTE DE COMPRA</span>
+    <h1>Tu ticket</h1>
+    <p>Revisa los detalles de tu pedido.</p>
+  </div>
+
+  <div id="ticket-content" class="ticket-card"></div>
+
+  <div class="ticket-actions">
+    <button class="primary-button" onclick="printTicket()">
+      🖨️ Imprimir ticket
+    </button>
+
+    <button class="light-button" onclick="newPurchase()">
+      Nueva compra
+    </button>
+  </div>
+
+</section>
+
+<!-- DIAGRAMA DE FLUJO -->
+<section id="flow" class="page section">
+
+  <div class="section-heading">
+    <span class="eyebrow">FUNCIONAMIENTO DEL SISTEMA</span>
+    <h1>Diagrama de flujo</h1>
+    <p>Proceso de compra en línea de Abarrotes El Chavo07.</p>
+  </div>
+
+  <div class="flow-container">
+
+    <div class="flow-start">INICIO</div>
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-process">Mostrar pantalla de inicio</div>
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-process">Mostrar política de privacidad</div>
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-input">Informar sobre el uso de los datos</div>
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-decision">¿Acepta la política?</div>
+
+    <div class="flow-branches">
+      <div class="branch">
+        <span class="branch-label">NO</span>
+        <div class="flow-input">Regresar al inicio</div>
+      </div>
+      <div class="branch">
+        <span class="branch-label">SÍ</span>
+        <div class="flow-process">Seleccionar categoría</div>
+      </div>
+    </div>
+
+    <div class="flow-arrow">↓</div>
+    <div class="flow-process">Mostrar productos de la categoría</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-input">Seleccionar producto y cantidad</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-decision">¿Agregar producto al carrito?</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-process">Agregar producto y actualizar subtotal</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-decision">¿Desea agregar otro producto?</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-input">Mostrar carrito y total</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-decision">¿Desea modificar el carrito?</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-decision">¿Desea finalizar compra?</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-input">Ingresar datos de compra y entrega</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-process">Validar datos</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-decision">¿Datos válidos?</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-process">Generar ticket</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-input">Mostrar confirmación de compra</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-start">FIN</div>
+
+  </div>
+
+  <p class="flow-note">
+    Este diagrama representa la secuencia principal del proceso
+    de compra de la tienda.
+  </p>
+
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-brand">🛒 ABARROTES EL CHAVO07</div>
+  <p>Tu tienda de confianza. ♡</p>
+
+  <div class="footer-links">
+    <a href="#" onclick="showPage('home')">Inicio</a>
+    <a href="#" onclick="showPage('privacy')">Privacidad</a>
+    <a href="#" onclick="showPage('flow')">Diagrama de flujo</a>
+  </div>
+
+  <p class="copyright">© 2026 Abarrotes El Chavo07. Todos los derechos reservados.</p>
+</footer>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
